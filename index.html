@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>XF RNG Calculator</title>
+		<link rel="stylesheet" href="RNG_desktop.css" media="screen" />
+		<link rel="stylesheet" href="RNG_mobile.css" media="only screen and (max-device width:480px)"/>
+		<meta name="viewport" content="width=320,user-scalable=false" />
+	</head>
+
+	<body>
+
+		<p>
+			<img src="XFLogo.png" alt="X-Fighting Logo" width=218px height=auto>
+		</p>
+
+		<p>
+			<img src="SumRndmDdeLogo3.png" alt="SumRndmDde" width = 218px height = auto>
+		</p>
+
+		<h1>X-Fighting<br>RNG Calculator</h1>
+		<h1>Version: 1.12</h1>
+
+		<p style="background-color:white;">
+			<br>
+			Hello!
+			<br>
+			Welcome to an X-Fighting calculator!
+			<br>
+			<br>
+			The following is a calculator for determining
+			your RNG.
+			It's sort of hard to explain, but feel free to play
+			around with it.
+			<br>
+			<br>
+			And yes, this calculator works perfectly.
+			Be sure to use it before you reforge, upgrade a phylactery, or take risks in the arena.
+			<br>
+			<br>
+			- SumRndmDde aka. Robert<br>
+			(The High Preist of RNGudism)
+			<br>
+			<br>
+			<br>
+			Looking for version for Chaos Fighters?<br>
+			<a href="http://www.tinyurl.com/RNGCalculator">Chaos Fighters RNG Calculator</a><br>
+			<br>
+		</p>
+
+		<p>
+			<img src="SumRndmDdeLogo3.png" alt="SumRndmDde" width = 218px height = auto>
+		</p>
+
+		<p style="background-color:white;" id='Welcome'>
+			<br>
+			<script>
+				if(localStorage.username)
+				{
+					document.write('Welcome back, ' + localStorage.username + '!<br><br>');
+				}
+				else
+				{
+					document.write('Welcome back, some random dude!<br><br>');
+				}
+
+				document.write('The current time and date is:<br>');
+				document.write(Date());
+				
+				if(localStorage.username || !localStorage.allowChange)
+				{
+					document.write('<br><br><button onclick="changeName()"><font size="2">Reset name</font></button><br><br>');
+				}
+				else
+				{
+					document.write('<br><br>');
+				}
+			</script>
+		</p>
+
+		<p style="background-color:white;">
+			<br>
+			<button onclick='getResults()'>
+				<font size="4">Find Today's RNG!</font>
+			</button>
+			<br>
+			<br>
+		</p>
+
+		<p id="Results" style="background-color:white;">
+			<script>
+				if(localStorage.sameDay && localStorage.momentDate)
+				{
+					var ratings = ['Perfect RNG', 'Excellent', 'Great', 'Good', 'Normal', 'Meh', 'Not Good', 'Bad', 'Very Bad', 'Very Very Bad', 'Super Bad', 'Mega Bad', 'Ultra Bad', 'Worst Possible'];
+					var stats = ['HP', 'ATK', 'SPD', 'STR', 'DEX', 'STA', 'HP%', 'ATK%', 'MIN ATK', 'MAX ATK', 'HIT', 'EVA', 'BRK', 'DEF', 'CRT', 'RES'];
+					var fighters = ['Sima Yi', 'Toadmeister', 'Chrome', 'Merv', 'Freya', 'Evil Guan Yu', 'Kellyn', 'Llamar', 'Wolverine', 'Devil Hunter', 'Shabel', 'Fleshy', 'Wanderer', 'Ichigo', 'Thor', 'Zhao Yu', 'Evil Ivbu', 'Death Knight', 'Pumpkin', 'Nami', 'Cloud', 'Chopper', 'Iron Man', 'Rugalz'];
+					var skills = ['Bacteria', 'Freezing Skill', 'Cleanse', 'Energy Shield', 'Fire Meteorite', 'Fire Shield', 'Blood Frenzy', 'Wound Infection','Golden Shield', 'Inescapable Net', 'Thunderclap Quake', 'Thorn Shield', 'Lightning Ball', 'Thunderbolt Boxing', 'Arrival of Thunder God', 'Anti-Damage Chop', 'Storm Boxing', 'Fast Move', 'Violence', 'Magic Stealing', 'Heavy Hammer', 'Explosive Blow', 'Gallop', 'Counterattack', 'Bomb', 'Poisonous Fog', 'Time Bomb', 'Wine', 'Ghoul Block', 'Skill Shackles', 'Earth-Style Wall', 'Barbarism', 'Assassinate', 'Dark Curse',' Moving Illusion', 'Shield Wall', 'Draw Power', 'Rejuvenation', 'Rebirth', 'Blood Sacrifice'];
+
+					document.write("<br>" + localStorage.username + "'s RNG for<br> <font style='text-decoration: underline'>" + localStorage.momentDate + "</font> <br><br> <b>RNG Rating:</b> " + ratings[localStorage.rating] + " <br><br><br> <b>RNG Description:</b><br>" + localStorage.desc + " <br><br><br> <b>Lucky Stat:</b> " + stats[localStorage.luckyStat] + " <br><br> <b>Unlucky Stat:</b> " + stats[localStorage.unluckyStat] + " <br><br><br> <b>Lucky Fighter:</b> " + fighters[localStorage.luckyFighter] + " <br><br> <b>Unlucky Fighter:</b> " + fighters[localStorage.unluckyFighter] + " <br><br><br> <b>Lucky Skill:</b> " + skills[localStorage.luckySkill] + " <br><br> <b>Unlucky Skill:</b> " + skills[localStorage.unluckySkill] + "<br><br>");
+				}
+				else
+				{
+					document.write("<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>");
+				}
+			</script>
+		</p>
+		<br>
+		<p>
+			<img src="SumRndmDdeLogo3.png" alt="SumRndmDde" width = 218px height = auto>
+		</p>
+		<br>
+		<p style="background-color:#F0E68C;">
+			<br>
+			Special Thanks to:<br>
+			<br>
+			<font size="3" style='text-decoration: underline'>Aladdin</font><br>
+			I feel like he did something, but I don't remember at the current moment that I'm writing this. Oh well...
+			<br>
+			<br>
+		</p>
+		<br>
+		<p style="font-family:terminal;background-color:lightblue;">
+			<br>
+			Changelog:<br>
+			<br>
+			<font size="3" style='text-decoration: underline'>[Version 1.12]</font><br>
+ 			Fixed Calculator to have XF Fighters<br>
+			<br>
+			<font size="3" style='text-decoration: underline'>[Version 1.11]</font><br>
+ 			Added link to CF Version<br>
+			<br>
+			<font size="3" style='text-decoration: underline'>[Version 1.10]</font><br>
+ 			Information is now Persistent! ^^<br>
+			<br>
+			<font size="3" style='text-decoration: underline'>[Version 1.00]</font><br>
+ 			Official Release Version<br>
+			<br>
+			<font size="3" style='text-decoration: underline'>[Version Beta 1.40]</font><br>
+ 			Added Longer Descriptions<br>
+			<br>
+			<font size="3" style='text-decoration: underline'>[Version Beta 1.30]</font><br>
+ 			Added Date Recognition<br>
+			<br>
+			<font size="3" style='text-decoration: underline'>[Version Beta 1.20]</font><br>
+ 			Added Name Recognition<br>
+			<br>
+			<font size="3" style='text-decoration: underline'>[Version Beta 1.10]</font><br>
+ 			Created In-depth Descriptions<br>
+			<br>
+			<font size="3" style='text-decoration: underline'>[Version Beta 1.00]</font><br>
+ 			Calculator Created<br>
+ 			<br>
+		</p>
+
+		<p>
+			<br>
+			<br>
+			<br>
+			Found an error?<br>
+			Wish to request something?<br>
+			My LINE ID is 'SumRndmDde'<br>
+		</p>
+
+	</body>
+
+	<code>
+
+	</code>
+
+	<script>
+		function changeName()
+		{
+			do
+			{
+				localStorage.username = window.prompt("Wait...\nYou legally changed your name to something else?\nWell, what is it?","");
+
+				if(localStorage.username == '')
+				{
+					localStorage = null;
+				}
+			}
+			while(!localStorage.username)
+
+			document.getElementById('Welcome').innerHTML = '<br>Welcome back, ' + localStorage.username + '!<br><br>' + 'The current time and date is:<br>' + Date() + '<br><br><button onclick="changeName()"><font size="2">Reset name</font></button><br><br>';
+
+			document.getElementById('Results').innerHTML = '<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>';
+		}
+
+		function getResults()
+		{
+			while(!localStorage.username)
+			{
+				localStorage.username = window.prompt("Greetings!\nI see this is your first time using this calculator.\nPlease enter in your name.","");
+
+				if(localStorage.username == '')
+				{
+					localStorage = null;
+				}
+			}
+
+			document.getElementById('Welcome').innerHTML = '<br>Welcome back, ' + localStorage.username + '!<br><br>' + 'The current time and date is:<br>' + Date() + '<br><br><button onclick="changeName()"><font size="2">Reset name</font></button><br><br>';
+
+			var ratings = ['Perfect RNG', 'Excellent', 'Great', 'Good', 'Normal', 'Meh', 'Not Good', 'Bad', 'Very Bad', 'Very Very Bad', 'Super Bad', 'Mega Bad', 'Ultra Bad', 'Worst Possible'];
+			var stats = ['HP', 'ATK', 'SPD', 'STR', 'DEX', 'STA', 'HP%', 'ATK%', 'MIN ATK', 'MAX ATK', 'HIT', 'EVA', 'BRK', 'DEF', 'CRT', 'RES'];
+			var fighters = ['Sima Yi', 'Toadmeister', 'Chrome', 'Merv', 'Freya', 'Evil Guan Yu', 'Kellyn', 'Llamar', 'Wolverine', 'Devil Hunter', 'Shabel', 'Fleshy', 'Wanderer', 'Ichigo', 'Thor', 'Zhao Yu', 'Evil Ivbu', 'Death Knight', 'Pumpkin', 'Nami', 'Cloud', 'Chopper', 'Iron Man', 'Rugalz'];
+			var skills = ['Bacteria', 'Freezing Skill', 'Cleanse', 'Energy Shield', 'Fire Meteorite', 'Fire Shield', 'Blood Frenzy', 'Wound Infection','Golden Shield', 'Inescapable Net', 'Thunderclap Quake', 'Thorn Shield', 'Lightning Ball', 'Thunderbolt Boxing', 'Arrival of Thunder God', 'Anti-Damage Chop', 'Storm Boxing', 'Fast Move', 'Violence', 'Magic Stealing', 'Heavy Hammer', 'Explosive Blow', 'Gallop', 'Counterattack', 'Bomb', 'Poisonous Fog', 'Time Bomb', 'Wine', 'Ghoul Block', 'Skill Shackles', 'Earth-Style Wall', 'Barbarism', 'Assassinate', 'Dark Curse',' Moving Illusion', 'Shield Wall', 'Draw Power', 'Rejuvenation', 'Rebirth', 'Blood Sacrifice'];
+
+			var rating = Math.floor(Math.random() * ratings.length);
+
+			var luckyStat = Math.floor(Math.random() * stats.length);
+			var unluckyStat = Math.floor(Math.random() * stats.length);
+
+			var luckyFighter = Math.floor(Math.random() * fighters.length);
+			var unluckyFighter = Math.floor(Math.random() * fighters.length);
+
+			var luckySkill = Math.floor(Math.random() * skills.length);
+			var unluckySkill = Math.floor(Math.random() * skills.length);
+
+			while(luckyStat === unluckyStat)
+			{
+				unluckyStat = Math.floor(Math.random() * stats.length);
+			}
+			while(luckyFighter === unluckyFighter)
+			{
+				unluckyFighter = Math.floor(Math.random() * stats.length);
+			}
+			while(luckySkill === unluckySkill)
+			{
+				unluckySkill = Math.floor(Math.random() * stats.length);
+			}
+
+			var d = new Date();
+			var months = ['January', 'Feburary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+			var date = months[d.getMonth()] + " " + String(d.getDate()) + ", " + String(d.getFullYear());
+
+			var randomIntro = Math.floor(Math.random() * 3);
+			var randomOutro = Math.floor(Math.random() * 3);
+
+
+			var ratingParagraph = [];
+
+			ratingParagraph[0] = 'Your RNG is perfect today! Do not hesitate to do anything! Even if there are no events, now is the best time to spend!';
+
+			var excellentIntros = ['Your RNG is excellent today!', 'Your RNG is absolutely wonderful today!', 'Your RNG is almost perfect!'];
+			var excellentOutros = ['Be sure to take advantage of ' + stats[luckyStat] + ' during arena!', 'Look over your Phylactery! Now is a good time to change!', 'The current event going on is meant for you! Take action!'];
+			ratingParagraph[1] = excellentIntros[randomIntro] + ' ' + excellentOutros[randomOutro];
+
+			var greatIntros = ['Oh my! Your RNG is great today!', 'Yay! Your RNG is great!', 'Your time is now!'];
+			var greatOutros = ['Go after any ' + fighters[luckyFighter] + 's you see in arena!', 'Now is the time to spend all your energy in Cemetery! Onward!', 'Use ' + skills[luckySkill] + ' all throughout today for the best results!'];
+			ratingParagraph[2] = greatIntros[randomIntro] + ' ' + greatOutros[randomOutro];
+
+			var goodIntros = ['Your RNG is not bad.', 'Oh! Seems like today will be quite nice to you.', 'Seems like things will be good today.'];
+			var goodOutros = ['If you have a Phylactery that needs to be leveled up, do it today!', "It doesn't matter what it is, you should try to spend some gold today!", "If you're going to fight someone today, then try fighting someone that uses a lot of" + stats[luckyStat]];
+			ratingParagraph[3] = goodIntros[randomIntro] + ' ' + goodOutros[randomOutro];
+
+			var normalIntros = ["Hmmm, you don't seem to have any RNG influence one way or the other.", 'Your luck appears to be neutral today.', 'It seems like there will be no RNG today for you.'];
+			var normalOutros = ["Feel free to take risks, but don't do anything crazy.", "While your luck may not be amazing, you can get some benefit by attacking any " + fighters[luckyFighter] + "s you encounter."];
+			ratingParagraph[4] = normalIntros[randomIntro] + ' ' + normalOutros[randomOutro];
+
+			var mehIntros = ['Your RNG is a little below good.', 'RNG will slightly push you today.', "Today's RNG doesn't appear to want to cooperate."];
+			var mehOutros = ["There's not much to say, just take things slowly.", "Try to use this miniscule luck to conquer Meditation!", "Your luck won't be bad unless you use " + skills[unluckySkill]];
+			ratingParagraph[5] = mehIntros[randomIntro] + ' ' + mehOutros[randomOutro];
+
+			var notIntros = ['Your RNG is not good but not bad either.', "Your RNG isn't very good; however, it is not bad either.", 'Hmmmm, I guess your luck will not help you today.'];
+			var notOutros = ["Play normally and do nothing else.", "Do your dailies and take a risk if you feel like it.", "Try using " + skills[luckySkill] + " if you're going to need some extra luck."];
+			ratingParagraph[6] = notIntros[randomIntro] + ' ' + notOutros[randomOutro];
+
+			var badIntros = ['Oooof, your RNG is bad today.', 'Your RNG is going to be bad today.', 'Unfortunately, your RNG is leaning towards the negative side today.'];
+			var badOutros = ["Don't fight anyone in the Red Tier in arena today.", "Don't meditate unless there are a lot of other people meditating.", "Watch out for any " + fighters[unluckyFighter] + "s!"];
+			ratingParagraph[7] = badIntros[randomIntro] + ' ' + badOutros[randomOutro];
+
+			var veryIntros = ['Oh-no! Your RNG is very bad today!', 'Wow, turns out you have really bad RNG today.', 'Seems like the dice rolled in the wrong direction this time.'];
+			var veryOutros = ["Try to avoid any " + fighters[unluckyFighter] + "s you see in arena!", "Try not to use " + skills[unluckySkill] + " today.", "If you build " + stats[unluckyStat] + ", then you should be very careful."];
+			ratingParagraph[8] = veryIntros[randomIntro] + ' ' + veryOutros[randomOutro];
+
+			var veryveryIntros = ['Oh god, there are two "very"s in front of that "bad".', 'Your RNG has gone quite low.', 'Careful, your luck is horribly low today.'];
+			var veryveryOutros = ["Do not meditate today!", "Do not try to manipulate your Phylactery today.", "Try and be careful around any " + fighters[unluckyFighter] + "s."];
+			ratingParagraph[9] = veryveryIntros[randomIntro] + ' ' + veryveryOutros[randomOutro];
+
+			var superIntros = ['Your RNG is super bad today.', 'Shoot, seems like this is not your day today.', "Watch out! Today's RNG is garbage!"];
+			var superOutros = ["Do not reforge today, no matter what!", "You will have a horrible time in arena today.", "Treasure mountain will not cooperate at all."];
+			ratingParagraph[10] = superIntros[randomIntro] + ' ' + superOutros[randomOutro];
+
+			var megaIntros = ['Jesus Christ! Your RNG is so awful today!', 'Mega bad RNG?!', 'Today your RNG has dropped dangerously low.'];
+			var megaOutros = ["Do not use any of your energy in Cemetery today!", "Don't use energy in Team Instances during half-energy, just sweep it away in Adventure.", "Don't do anything that involves " + stats[unluckyStat]];
+			ratingParagraph[11] = megaIntros[randomIntro] + ' ' + megaOutros[randomOutro];
+
+			var ultraIntros = ['Listen, your RNG is almost as low as possible.', 'RNGezus is punishing you today.', 'Your RNG is truely at a dark point today.'];
+			var ultraOutros = ["Just do your dailies and don't do anything else.", "There's nothing that can help you.", "Have fun! ^^"];
+			ratingParagraph[12] = ultraIntros[randomIntro] + ' ' + ultraOutros[randomOutro];
+
+			ratingParagraph[13] = "Your RNG will do everything possible to make things horrible for you today. There's nothing I can say that will help you. Good luck, " + localStorage.username;
+
+
+			var isSameDay;
+			if(typeof(Storage) !== "undefined") {
+        		if (localStorage.storedDate) {
+            		isSameDay = (localStorage.storedDate === date);
+        		} else {
+            		isSameDay = false;
+        		}
+        		localStorage.storedDate = date;
+    		} else {
+        		document.getElementById('Results').innerHTML = "Sorry, your browser does not support web storage...";
+    		}
+
+    		localStorage.sameDay = isSameDay;
+
+			if(isSameDay)
+			{
+				document.getElementById('Results').innerHTML = "<br>" + localStorage.username + "'s RNG for<br> <font style='text-decoration: underline'>" + date + "</font> <br><br> <b>RNG Rating:</b> " + ratings[localStorage.rating] + " <br><br><br> <b>RNG Description:</b><br>" + localStorage.desc + " <br><br><br> <b>Lucky Stat:</b> " + stats[localStorage.luckyStat] + " <br><br> <b>Unlucky Stat:</b> " + stats[localStorage.unluckyStat] + " <br><br><br> <b>Lucky Fighter:</b> " + fighters[localStorage.luckyFighter] + " <br><br> <b>Unlucky Fighter:</b> " + fighters[localStorage.unluckyFighter] + " <br><br><br> <b>Lucky Skill:</b> " + skills[localStorage.luckySkill] + " <br><br> <b>Unlucky Skill:</b> " + skills[localStorage.unluckySkill] + "<br><br>";
+			}
+			else
+			{
+				localStorage.rating = rating;
+				localStorage.desc = ratingParagraph[rating];
+				localStorage.luckyStat = luckyStat;
+				localStorage.unluckyStat = unluckyStat;
+				localStorage.luckyFighter = luckyFighter;
+				localStorage.unluckyFighter = unluckyFighter;
+				localStorage.luckySkill = luckySkill;
+				localStorage.unluckySkill = unluckySkill;
+				localStorage.momentDate = date;
+
+				document.getElementById('Results').innerHTML = "<br>" + localStorage.username + "'s RNG for<br> <font style='text-decoration: underline'>" + date + "</font> <br><br> <b>RNG Rating:</b> " + ratings[rating] + " <br><br><br> <b>RNG Description:</b><br>" + ratingParagraph[rating] + " <br><br><br> <b>Lucky Stat:</b> " + stats[luckyStat] + " <br><br> <b>Unlucky Stat:</b> " + stats[unluckyStat] + " <br><br><br> <b>Lucky Fighter:</b> " + fighters[luckyFighter] + " <br><br> <b>Unlucky Fighter:</b> " + fighters[unluckyFighter] + " <br><br><br> <b>Lucky Skill:</b> " + skills[luckySkill] + " <br><br> <b>Unlucky Skill:</b> " + skills[unluckySkill] + "<br><br>";
+			}
+		}
+	</script>
+</html>
